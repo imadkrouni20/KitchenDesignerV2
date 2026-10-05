@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover">
+<title>مصمم المطبخ</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+html, body {
+  margin: 0; padding: 0; overflow: hidden;
+  background: #222; font-family: system-ui, sans-serif;
+  width: 100vw; height: 100vh; height: 100dvh;
+  touch-action: none; overscroll-behavior: none;
+  user-select: none; -webkit-user-select: none;
+}
+#c { display: block; width: 100vw; height: 100vh; height: 100dvh; }
+#info {
+  position: fixed;
+  top: calc(12px + env(safe-area-inset-top));
+  left: 50%; transform: translateX(-50%);
+  color: #fff; background: rgba(0,0,0,.55);
+  padding: 8px 18px; border-radius: 20px;
+  font-size: 13px; pointer-events: none;
+  z-index: 10; white-space: nowrap;
+}
+</style>
+<script>
+window.onerror = function(m, src, l) {
+  var el = document.getElementById('info');
+  if (el) {
+    el.textContent = '❌ ' + m + ' @ ' + (src||'').split('/').pop() + ':' + l;
+    el.style.background = '#c0392b';
+  }
+};
+</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="info">النسخة 3 — المرحلة I</div>
+
+<div id="panel">
+  <div class="panel-header">
+    <span id="panel-title">القائمة</span>
+    <button id="panel-close" class="icon-btn">✕</button>
+  </div>
+  <div id="panel-body" class="panel-body"></div>
+</div>
+
+<button id="fab-open" class="fab" style="right:calc(16px + env(safe-area-inset-right));bottom:calc(88px + env(safe-area-inset-bottom));background:#e67e22;font-size:22px;display:none">🔓</button>
+<button id="fab-menu" class="fab">☰</button>
+
+<script src="js/three.min.js"></script>
+<script src="js/OrbitControls.js"></script>
+
+<script src="js/core/config.js"></script>
+<script src="js/core/materials.js"></script>
+<script src="js/core/scene.js"></script>
+<script src="js/core/room.js"></script>
+
+<script src="js/model/catalog.js"></script>
+<script src="js/model/defaults.js"></script>
+<script src="js/model/schema.js"></script>
+
+<script src="js/storage/library.js"></script>
+<script src="js/storage/history.js"></script>
+<script src="js/storage/save.js"></script>
+<script src="js/builders/cutlist.js"></script>
+<script src="js/interaction/screenshot.js"></script>
+<script src="js/interaction/measure.js"></script>
+<script src="js/ui/fabs.js"></script>
+
+<script src="js/builders/helpers.js"></script>
+<script src="js/builders/box/parts.js"></script>
+<script src="js/builders/box/support.js"></script>
+<script src="js/builders/box/countertop.js"></script>
+<script src="js/builders/box/doors.js"></script>
+<script src="js/builders/box/drawers.js"></script>
+<script src="js/builders/box/appliances.js"></script>
+<script src="js/builders/box/index.js"></script>
+<script src="js/builders/device.js"></script>
+<script src="js/builders/opening.js"></script>
+<script src="js/builders/manager.js"></script>
+
+<script src="js/ui/panel.js"></script>
+<script src="js/ui/fields.js"></script>
+<script src="js/ui/form-box.js"></script>
+<script src="js/ui/form-device.js"></script>
+<script src="js/ui/form-opening.js"></script>
+<script src="js/ui/library-ui.js"></script>
+<script src="js/ui/ui.js"></script>
+
+<script src="js/interaction/select.js"></script>
+<script src="js/interaction/drag.js"></script>
+<script src="js/interaction/openclose.js"></script>
+
+<script src="js/app.js"></script>
+</body>
+</html>
